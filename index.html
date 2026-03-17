@@ -70,7 +70,7 @@
 
         /* Hero */
         header {
-            padding: 200px 8% 120px;
+            padding: 200px 8% 80px;
             text-align: center;
             position: relative;
         }
@@ -104,38 +104,74 @@
             position: relative; z-index: 2;
         }
 
-        .profile-container::before {
-            content: '';
-            position: absolute; inset: -15px;
-            background: var(--accent);
-            filter: blur(40px);
-            opacity: 0.2;
-            border-radius: 50%;
+        /* Vision Section */
+        .vision-section {
+            background: rgba(56, 189, 248, 0.05);
+            padding: 60px 8%;
+            text-align: center;
+            border-y: 1px solid var(--glass-border);
+            margin-bottom: 60px;
         }
 
-        /* Expertise Grid */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
-        
-        .section-title { margin-bottom: 60px; text-align: center; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-title .line { width: 50px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px; }
+        .vision-text {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--white);
+            font-style: italic;
+            line-height: 1.8;
+            font-weight: 400;
+        }
 
-        .expertise-grid {
+        /* Sections common */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
+        .section-title { margin-bottom: 50px; text-align: left; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--white); }
+        .section-title .line { width: 60px; height: 4px; background: var(--accent); border-radius: 2px; }
+
+        /* Topics Grid */
+        .topics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
         }
 
-        .card {
+        .topic-card {
             background: var(--glass);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .topic-card:hover { transform: translateY(-5px); border-color: var(--accent); background: rgba(255,255,255,0.05); }
+        .topic-icon { font-size: 1.5rem; color: var(--accent); margin-top: 5px; }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .research-card {
+            background: var(--navy-light);
             padding: 40px;
             border-radius: 24px;
             border: 1px solid var(--glass-border);
-            transition: 0.4s;
-            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.05); border-color: var(--accent); }
+        .research-card::after {
+            content: '';
+            position: absolute; top: 0; right: 0;
+            width: 100px; height: 100px;
+            background: linear-gradient(225deg, rgba(56, 189, 248, 0.1), transparent);
+        }
 
         /* Modern Gallery */
         .gallery-grid {
@@ -146,7 +182,7 @@
 
         .gallery-item {
             position: relative;
-            height: 300px;
+            height: 250px;
             border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
@@ -160,41 +196,6 @@
         }
 
         .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
-
-        .gallery-info {
-            position: absolute; inset: 0;
-            display: flex; align-items: flex-end; padding: 25px;
-            background: linear-gradient(transparent, rgba(2, 6, 23, 0.9));
-            opacity: 0; transition: 0.3s;
-        }
-
-        .gallery-item:hover .gallery-info { opacity: 1; }
-
-        /* Lightbox */
-        #lightbox {
-            position: fixed;
-            inset: 0; background: rgba(2, 6, 23, 0.95);
-            z-index: 2000;
-            display: none;
-            justify-content: center; align-items: center;
-            padding: 40px;
-        }
-
-        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        
-        .close-lb { position: absolute; top: 40px; right: 40px; font-size: 2rem; color: white; cursor: pointer; }
-
-        /* Documents */
-        .doc-list { display: flex; flex-direction: column; gap: 15px; }
-        .doc-link {
-            background: var(--glass);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-            display: flex; justify-content: space-between; align-items: center;
-            text-decoration: none; color: white; transition: 0.3s;
-        }
-        .doc-link:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); border-color: var(--accent); }
 
         /* Contact Section */
         .contact-box {
@@ -223,9 +224,21 @@
 
         .contact-btn:hover { background: var(--accent); color: var(--navy); }
 
+        footer { text-align: center; padding: 50px 0; color: var(--slate); font-size: 0.8rem; }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed; inset: 0; background: rgba(2, 6, 23, 0.95);
+            z-index: 2000; display: none;
+            justify-content: center; align-items: center; padding: 40px;
+        }
+        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
+        .close-lb { position: absolute; top: 40px; right: 40px; font-size: 2rem; color: white; cursor: pointer; }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
+            .research-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -239,129 +252,106 @@
         <div class="logo">JATURONG.AI</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
+            <a href="#vision">Vision</a>
+            <a href="#topics">Topics</a>
+            <a href="#research">Research</a>
             <a href="#gallery">Portfolio</a>
-            <a href="#contact" style="background: var(--accent); color: var(--navy); padding: 8px 20px; border-radius: 50px; font-weight: 700;">Connect</a>
+            <a href="#contact" style="background: var(--accent); color: var(--navy); padding: 8px 20px; border-radius: 50px; font-weight: 700;">Hire Me</a>
         </div>
     </nav>
 
     <header id="about">
-        <div class="hero-tag">ENGINEERING & ARTIFICIAL INTELLIGENCE</div>
+        <div class="hero-tag">SENIOR ENGINEER & ACADEMIC LECTURER</div>
         <div class="profile-container">
             <img src="cover.jpg" class="profile-img">
         </div>
         <h1>นายจาตุรงค์ ทรงภักดี</h1>
-        <p class="title-sub">Lecturer | Senior Engineer | AI Researcher</p>
-        <p style="max-width: 700px; margin: 0 auto; color: var(--slate);">
-            เชี่ยวชาญด้านระบบไฟฟ้ากำลัง มาตรฐาน กฟภ. และการประยุกต์ใช้ AI ในงานวิศวกรรม 
-            มุ่งเน้นการถ่ายทอดองค์ความรู้เพื่อพัฒนาบุคลากรในยุค Digital Transformation
+        <p class="title-sub">Lecturer | Expert Guest Speaker | AI Researcher</p>
+        <p style="max-width: 750px; margin: 0 auto; color: var(--slate); line-height: 1.8;">
+            ผู้เชี่ยวชาญด้านระบบไฟฟ้ากำลัง มาตรฐาน กฟภ. และเทคโนโลยีพลังงานสะอาด 
+            ที่มุ่งเน้นการบูรณาการเทคโนโลยี AI เพื่อก้าวเข้าสู่ยุควิศวกรรมอัจฉริยะอย่างเต็มตัว
         </p>
     </header>
 
-    <div class="container" id="expertise">
+    <div class="vision-section" id="vision">
+        <div class="vision-text">
+            "มุ่งมั่นถ่ายทอดประสบการณ์จากหน้างานจริงและงานวิจัยสู่นักศึกษา เพื่อสร้างวิศวกรยุคใหม่ที่เข้าใจทั้งระบบไฟฟ้าและปัญญาประดิษฐ์"
+        </div>
+    </div>
+
+    <div class="container" id="topics">
         <div class="section-title">
-            <h2>Technical Expertise</h2>
+            <h2>Teaching & Speaking Topics</h2>
+            <div class="line"></div>
+            <p style="color: var(--slate); margin-top: 10px;">หัวข้อที่พร้อมบรรยายและถ่ายทอดความรู้</p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-icon">⚡</div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">EV Charger Installation</h3>
+                    <p style="font-size: 0.9rem; color: var(--slate);">การติดตั้งสถานีอัดประจุยานยนต์ไฟฟ้าของผู้ประกอบการตามมาตรฐานทางวิศวกรรม</p>
+                </div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">🤖</div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">Smart Grid in AI Era</h3>
+                    <p style="font-size: 0.9rem; color: var(--slate);">การออกแบบระบบจำหน่ายไฟฟ้าอัจฉริยะ (Smart Grid) ในยุคปัญญาประดิษฐ์</p>
+                </div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">🛠️</div>
+                <div>
+                    <h3 style="margin-bottom: 8px;">Power Systems Maintenance</h3>
+                    <p style="font-size: 0.9rem; color: var(--slate);">การบำรุงรักษาระบบไฟฟ้า EV Station และ Solar Cell อย่างถูกวิธีและปลอดภัย</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="research">
+        <div class="section-title">
+            <h2>Research & Projects</h2>
             <div class="line"></div>
         </div>
-        <div class="expertise-grid">
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 15px;">EV INFRASTRUCTURE</h3>
-                <p>การวางแผนและติดตั้งสถานีชาร์จรถยนต์ไฟฟ้า มาตรฐานการเชื่อมต่อ และการบริหารจัดการโหลดไฟฟ้า</p>
+        <div class="research-grid">
+            <div class="research-card">
+                <h3 style="color: var(--accent); margin-bottom: 20px;">Research Findings</h3>
+                <p style="color: var(--white); font-weight: 600; margin-bottom: 15px;">การพยากรณ์ค่าพลังงานสูญเสียในสถานีชาร์จ EV</p>
+                <p style="font-size: 0.9rem; color: var(--slate); line-height: 1.8;">
+                    งานวิจัยที่มุ่งเน้นการใช้ข้อมูลสถิติและแบบจำลองทางคณิตศาสตร์ เพื่อประเมินและลดค่าพลังงานสูญเสียในระบบอัดประจุไฟฟ้า
+                </p>
             </div>
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 15px;">GEN-AI & ML</h3>
-                <p>การใช้ Generative AI และ Machine Learning เพื่อเพิ่มประสิทธิภาพในการทำงานวิศวกรรมและการวิเคราะห์ข้อมูล</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 15px;">SMART DISTRIBUTION</h3>
-                <p>ระบบจำหน่ายไฟฟ้าอัจฉริยะ มาตรฐานความเชื่อถือได้ และการบำรุงรักษาสถานีไฟฟ้าตามเกณฑ์ กฟภ.</p>
+            <div class="research-card">
+                <h3 style="color: var(--accent); margin-bottom: 20px;">Digital Projects</h3>
+                <p style="color: var(--white); font-weight: 600; margin-bottom: 10px;">Web Application ระบบการจองรถ</p>
+                <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 15px;">การพัฒนาแพลตฟอร์มบริหารจัดการยานพาหนะผ่านระบบเว็บ</p>
+                <p style="color: var(--white); font-weight: 600; margin-bottom: 10px;">การใช้งานระบบ AI ในปัจจุบัน</p>
+                <p style="font-size: 0.9rem; color: var(--slate);">การประยุกต์ใช้ AI ในอุตสาหกรรมวิศวกรรมและการเพิ่มผลผลิตในงานประจำวัน</p>
             </div>
         </div>
     </div>
 
     <div class="container" id="gallery">
         <div class="section-title">
-            <h2>Project Portfolio</h2>
+            <h2>Work Experience Gallery</h2>
             <div class="line"></div>
-            <p style="color: var(--slate); margin-top: 15px;">คลิกที่รูปเพื่อขยายดูรายละเอียดผลงาน</p>
         </div>
         <div class="gallery-grid">
-            <!-- Row 1 -->
-            <div class="gallery-item" onclick="openLightbox('gallery/ev-1.jpg')">
-                <img src="gallery/ev-1.jpg">
-                <div class="gallery-info">EV Station Implementation</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/solar-1.jpg')">
-                <img src="gallery/solar-1.jpg">
-                <div class="gallery-info">Solar Power Optimization</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/comm-1.jpg')">
-                <img src="gallery/comm-1.jpg">
-                <div class="gallery-info">Communication Infrastructure</div>
-            </div>
-            <!-- Row 2 -->
-            <div class="gallery-item" onclick="openLightbox('gallery/ev-2.jpg')">
-                <img src="gallery/ev-2.jpg">
-                <div class="gallery-info">Technical Field Inspection</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/solar-2.jpg')">
-                <img src="gallery/solar-2.jpg">
-                <div class="gallery-info">Sustainable Energy Project</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/comm-2.jpg')">
-                <img src="gallery/comm-2.jpg">
-                <div class="gallery-info">System Maintenance & Support</div>
-            </div>
-            <!-- Row 3 (New) -->
-            <div class="gallery-item" onclick="openLightbox('gallery/ev-3.jpg')">
-                <img src="gallery/ev-3.jpg">
-                <div class="gallery-info">Charging Network Deployment</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/solar-3.jpg')">
-                <img src="gallery/solar-3.jpg">
-                <div class="gallery-info">High-Efficiency PV Systems</div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox('gallery/comm-3.jpg')">
-                <img src="gallery/comm-3.jpg">
-                <div class="gallery-info">Utility Line Standards</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="docs">
-        <div class="section-header section-title">
-            <h2>Technical Resources</h2>
-            <div class="line"></div>
-        </div>
-        <div class="doc-list">
-            <a href="documents/AI_Agents.pdf" target="_blank" class="doc-link">
-                <div>
-                    <strong>AI Agents for Engineering</strong>
-                    <p style="font-size: 0.8rem; color: var(--slate);">Digital Productivity Presentation</p>
-                </div>
-                <span>DOWNLOAD PDF</span>
-            </a>
-            <a href="documents/EV_Business_Strategy.pdf" target="_blank" class="doc-link">
-                <div>
-                    <strong>EV Infrastructure Strategy</strong>
-                    <p style="font-size: 0.8rem; color: var(--slate);">PEA Standard Implementation Guide</p>
-                </div>
-                <span>DOWNLOAD PDF</span>
-            </a>
-            <a href="documents/Communication_Guide.pdf" target="_blank" class="doc-link">
-                <div>
-                    <strong>Communication Pole Standards</strong>
-                    <p style="font-size: 0.8rem; color: var(--slate);">Utility Infrastructure Guidelines</p>
-                </div>
-                <span>DOWNLOAD PDF</span>
-            </a>
+            <div class="gallery-item" onclick="openLightbox('gallery/ev-1.jpg')"><img src="gallery/ev-1.jpg"></div>
+            <div class="gallery-item" onclick="openLightbox('gallery/solar-1.jpg')"><img src="gallery/solar-1.jpg"></div>
+            <div class="gallery-item" onclick="openLightbox('gallery/comm-1.jpg')"><img src="gallery/comm-1.jpg"></div>
+            <div class="gallery-item" onclick="openLightbox('gallery/ev-2.jpg')"><img src="gallery/ev-2.jpg"></div>
+            <div class="gallery-item" onclick="openLightbox('gallery/solar-2.jpg')"><img src="gallery/solar-2.jpg"></div>
+            <div class="gallery-item" onclick="openLightbox('gallery/comm-2.jpg')"><img src="gallery/comm-2.jpg"></div>
         </div>
     </div>
 
     <div class="container" id="contact">
         <div class="contact-box">
-            <h2>Ready to Collaborate?</h2>
-            <p style="color: var(--slate); margin-top: 10px;">ติดต่อสอบถามเกี่ยวกับการบรรยาย งานปรึกษา หรือการฝึกอบรม</p>
+            <h2>Ready to Connect?</h2>
+            <p style="color: var(--slate); margin-top: 10px;">ร่วมพัฒนาทักษะวิศวกรรมยุคใหม่ หรือเชิญบรรยายพิเศษ</p>
             <div class="contact-links">
                 <a href="tel:0983905858" class="contact-btn">📞 098-390-5858</a>
                 <a href="https://line.me/ti/p/~Snack1711" class="contact-btn">💬 LINE: Snack1711</a>
@@ -371,12 +361,9 @@
     </div>
 
     <footer>
-        <p style="padding-bottom: 40px; color: var(--slate); font-size: 0.8rem;">
-            &copy; 2026 Jaturong Songpakde. Powering the Future with Intelligence.
-        </p>
+        <p>&copy; 2026 Jaturong Songpakde. Engineering the Future with AI.</p>
     </footer>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" onclick="closeLightbox()">
         <span class="close-lb">&times;</span>
         <img id="lightbox-img">
