@@ -3,475 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaturong Songpakde | Senior Engineer & Academic Guest Speaker</title>
+    <title>Jaturong Songpakde | Engineering Expert & AI Researcher</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --accent: #38bdf8; /* Modern Sky Blue */
+            --navy: #020617;
+            --navy-light: #0f172a;
+            --accent: #38bdf8;
             --accent-dark: #0284c7;
-            --slate: #64748b;
-            --bg-light: #f8fafc;
+            --slate: #94a3b8;
             --white: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            --premium-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--navy);
-            line-height: 1.7;
+            background-color: var(--navy);
+            color: #e2e8f0;
+            overflow-x: hidden;
         }
 
-        /* Sophisticated Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 1.2rem 5%;
+        /* AI Animated Background */
+        .ai-bg {
             position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
         }
 
-        .logo {
-            font-weight: 700;
-            color: var(--navy);
-            font-size: 1.1rem;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
+        .ai-grid {
+            position: absolute;
+            width: 200%; height: 200%;
+            top: -50%; left: -50%;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(45deg);
+            animation: moveGrid 20s linear infinite;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
+        @keyframes moveGrid {
+            from { transform: perspective(500px) rotateX(45deg) translateY(0); }
+            to { transform: perspective(500px) rotateX(45deg) translateY(50px); }
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--slate);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
+        /* Navigation */
+        nav {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 8%;
+            position: fixed;
+            width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border);
         }
 
+        .logo { font-weight: 800; color: var(--accent); font-size: 1.2rem; letter-spacing: 1px; }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--slate); font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* Premium Hero Section */
+        /* Hero */
         header {
-            padding: 180px 5% 100px;
-            background: var(--navy);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 200px 8% 120px;
             text-align: center;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            width: 100%; height: 100%;
-            top: 0; left: 0;
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent);
-            pointer-events: none;
-        }
-
-        .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 1000px;
+        }
+
+        .hero-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; }
+        .title-sub { font-size: 1.5rem; color: var(--slate); margin-bottom: 40px; font-weight: 300; }
+
+        .profile-container {
+            position: relative;
+            width: 200px; height: 200px;
+            margin: 0 auto 40px;
         }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic modern shape */
-            border: 8px solid rgba(255,255,255,0.05);
-            margin-bottom: 2.5rem;
+            width: 100%; height: 100%;
+            border-radius: 24px;
             object-fit: cover;
-            box-shadow: var(--premium-shadow);
+            border: 2px solid var(--glass-border);
+            position: relative; z-index: 2;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute; inset: -15px;
+            background: var(--accent);
+            filter: blur(40px);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        /* Expertise Grid */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+        
+        .section-title { margin-bottom: 60px; text-align: center; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-title .line { width: 50px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px; }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.05); border-color: var(--accent); }
+
+        /* Modern Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+        }
+
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
             transition: 0.5s;
         }
 
-        .profile-img:hover { border-radius: 50%; }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
 
-        h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+        .gallery-info {
+            position: absolute; inset: 0;
+            display: flex; align-items: flex-end; padding: 25px;
+            background: linear-gradient(transparent, rgba(2, 6, 23, 0.9));
+            opacity: 0; transition: 0.3s;
         }
 
-        .hero-title-sub {
-            font-size: 1.4rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .gallery-item:hover .gallery-info { opacity: 1; }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            inset: 0; background: rgba(2, 6, 23, 0.95);
+            z-index: 2000;
+            display: none;
+            justify-content: center; align-items: center;
+            padding: 40px;
         }
 
-        .badge {
-            background: rgba(255,255,255,0.08);
-            padding: 0.8rem 1.8rem;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #cbd5e1;
-        }
+        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        
+        .close-lb { position: absolute; top: 40px; right: 40px; font-size: 2rem; color: white; cursor: pointer; }
 
-        /* Layout Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 5%;
-        }
-
-        .section-header {
-            text-align: left;
-            margin-bottom: 60px;
-            max-width: 700px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--navy);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .line {
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* Modern Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        /* Expertise Card */
-        .card {
-            background: var(--white);
-            padding: 45px;
-            border-radius: 24px;
-            box-shadow: var(--card-shadow);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--premium-shadow);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--navy-light);
-        }
-
-        .card p {
-            color: var(--slate);
-            font-size: 0.95rem;
-        }
-
-        /* Modern Gallery */
-        .gallery-masonry {
-            columns: 3 300px;
-            column-gap: 20px;
-        }
-
-        .gallery-box {
-            break-inside: avoid;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--card-shadow);
-        }
-
-        .gallery-box img {
-            width: 100%;
-            display: block;
-            transition: 0.6s;
-        }
-
-        .gallery-box:hover img { transform: scale(1.08); }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
-            opacity: 0;
-            transition: 0.4s;
-            display: flex;
-            align-items: flex-end;
+        /* Documents */
+        .doc-list { display: flex; flex-direction: column; gap: 15px; }
+        .doc-link {
+            background: var(--glass);
             padding: 25px;
-            color: white;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            display: flex; justify-content: space-between; align-items: center;
+            text-decoration: none; color: white; transition: 0.3s;
+        }
+        .doc-link:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); border-color: var(--accent); }
+
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
+            border-radius: 30px;
+            padding: 60px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
         }
 
-        .gallery-box:hover .gallery-overlay { opacity: 1; }
-
-        /* Document List */
-        .doc-card {
-            background: white;
-            padding: 25px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: var(--navy);
-            margin-bottom: 15px;
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: 0.3s;
-        }
-
-        .doc-card:hover {
-            background: var(--bg-light);
-            border-color: var(--accent);
-            transform: translateX(10px);
-        }
-
-        .doc-info { display: flex; align-items: center; gap: 20px; }
-        .doc-icon { width: 45px; height: 45px; background: #fee2e2; color: #ef4444; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; }
-
-        /* Modern Contact Grid */
-        .contact-section {
-            background: var(--navy);
-            border-radius: 40px;
-            padding: 80px 5%;
-            color: white;
-            margin-top: 50px;
-        }
-
-        .contact-grid {
+        .contact-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-top: 40px;
         }
 
-        .contact-item {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+        .contact-btn {
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none; color: white;
+            border: 1px solid var(--glass-border);
             transition: 0.3s;
+            font-weight: 600;
         }
 
-        .contact-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
-
-        .contact-item a { color: var(--accent); text-decoration: none; font-size: 1.2rem; font-weight: 600; }
-
-        footer {
-            text-align: center;
-            padding: 50px 0;
-            color: var(--slate);
-            font-size: 0.85rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--navy);
-            padding: 14px 35px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: 0.3s;
-            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.4);
-            background: var(--white);
-        }
+        .contact-btn:hover { background: var(--accent); color: var(--navy); }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
-            .hero-title-sub { font-size: 1rem; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <div class="ai-bg">
+        <div class="ai-grid"></div>
+    </div>
+
     <nav>
-        <div class="logo">Jaturong.S</div>
+        <div class="logo">JATURONG.AI</div>
         <div class="nav-links">
+            <a href="#about">About</a>
             <a href="#expertise">Expertise</a>
-            <a href="#gallery">Projects</a>
-            <a href="#docs">Documents</a>
-            <a href="#contact" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Hire Me</a>
+            <a href="#gallery">Portfolio</a>
+            <a href="#contact" style="background: var(--accent); color: var(--navy); padding: 8px 20px; border-radius: 50px; font-weight: 700;">Connect</a>
         </div>
     </nav>
 
-    <header>
-        <div class="hero-content">
-            <img src="cover.jpg" class="profile-img" alt="นายจาตุรงค์ ทรงภักดี">
-            <h1>นายจาตุรงค์ ทรงภักดี</h1>
-            <div class="hero-title-sub">Senior Engineer & Academic Lecturer</div>
-            <div class="badge">
-                พชง.6 | การไฟฟ้าส่วนภูมิภาค เขต 2 (ภาคเหนือ)
-            </div>
+    <header id="about">
+        <div class="hero-tag">ENGINEERING & ARTIFICIAL INTELLIGENCE</div>
+        <div class="profile-container">
+            <img src="cover.jpg" class="profile-img">
         </div>
+        <h1>นายจาตุรงค์ ทรงภักดี</h1>
+        <p class="title-sub">Lecturer | Senior Engineer | AI Researcher</p>
+        <p style="max-width: 700px; margin: 0 auto; color: var(--slate);">
+            เชี่ยวชาญด้านระบบไฟฟ้ากำลัง มาตรฐาน กฟภ. และการประยุกต์ใช้ AI ในงานวิศวกรรม 
+            มุ่งเน้นการถ่ายทอดองค์ความรู้เพื่อพัฒนาบุคลากรในยุค Digital Transformation
+        </p>
     </header>
 
     <div class="container" id="expertise">
-        <div class="section-header">
-            <h2>Core Competencies</h2>
+        <div class="section-title">
+            <h2>Technical Expertise</h2>
             <div class="line"></div>
         </div>
-
-        <div class="grid">
+        <div class="expertise-grid">
             <div class="card">
-                <h3>EV Systems</h3>
-                <p>Infrastructure planning, charging standard implementation, and load impact analysis for modern EV ecosystems.</p>
+                <h3 style="color: var(--accent); margin-bottom: 15px;">EV INFRASTRUCTURE</h3>
+                <p>การวางแผนและติดตั้งสถานีชาร์จรถยนต์ไฟฟ้า มาตรฐานการเชื่อมต่อ และการบริหารจัดการโหลดไฟฟ้า</p>
             </div>
             <div class="card">
-                <h3>Applied AI</h3>
-                <p>Developing Machine Learning models for predictive maintenance and engineering data optimization.</p>
+                <h3 style="color: var(--accent); margin-bottom: 15px;">GEN-AI & ML</h3>
+                <p>การใช้ Generative AI และ Machine Learning เพื่อเพิ่มประสิทธิภาพในการทำงานวิศวกรรมและการวิเคราะห์ข้อมูล</p>
             </div>
             <div class="card">
-                <h3>Smart Grid</h3>
-                <p>Expertise in distribution network reliability, smart metering, and substation automation standards.</p>
+                <h3 style="color: var(--accent); margin-bottom: 15px;">SMART DISTRIBUTION</h3>
+                <p>ระบบจำหน่ายไฟฟ้าอัจฉริยะ มาตรฐานความเชื่อถือได้ และการบำรุงรักษาสถานีไฟฟ้าตามเกณฑ์ กฟภ.</p>
             </div>
         </div>
     </div>
 
-    <div class="container" id="gallery" style="background: #fff; max-width: 100%; border-radius: 60px 60px 0 0;">
-        <div class="section-header" style="max-width: 1200px; margin: 0 auto 60px; padding: 0 5%;">
+    <div class="container" id="gallery">
+        <div class="section-title">
             <h2>Project Portfolio</h2>
             <div class="line"></div>
-            <p style="margin-top: 20px; color: var(--slate);">Evidence of technical excellence and field operations.</p>
+            <p style="color: var(--slate); margin-top: 15px;">คลิกที่รูปเพื่อขยายดูรายละเอียดผลงาน</p>
         </div>
-
-        <div class="gallery-masonry" style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
-            <div class="gallery-box">
+        <div class="gallery-grid">
+            <!-- Row 1 -->
+            <div class="gallery-item" onclick="openLightbox('gallery/ev-1.jpg')">
                 <img src="gallery/ev-1.jpg">
-                <div class="gallery-overlay">EV Infrastructure Installation</div>
+                <div class="gallery-info">EV Station Implementation</div>
             </div>
-            <div class="gallery-box">
+            <div class="gallery-item" onclick="openLightbox('gallery/solar-1.jpg')">
                 <img src="gallery/solar-1.jpg">
-                <div class="gallery-overlay">Solar PV Efficiency Analysis</div>
+                <div class="gallery-info">Solar Power Optimization</div>
             </div>
-            <div class="gallery-box">
+            <div class="gallery-item" onclick="openLightbox('gallery/comm-1.jpg')">
                 <img src="gallery/comm-1.jpg">
-                <div class="gallery-overlay">Communication Line Design</div>
+                <div class="gallery-info">Communication Infrastructure</div>
             </div>
-            <div class="gallery-box">
+            <!-- Row 2 -->
+            <div class="gallery-item" onclick="openLightbox('gallery/ev-2.jpg')">
                 <img src="gallery/ev-2.jpg">
-                <div class="gallery-overlay">Technical Site Inspection</div>
+                <div class="gallery-info">Technical Field Inspection</div>
             </div>
-            <div class="gallery-box">
+            <div class="gallery-item" onclick="openLightbox('gallery/solar-2.jpg')">
                 <img src="gallery/solar-2.jpg">
-                <div class="gallery-overlay">Power System Maintenance</div>
+                <div class="gallery-info">Sustainable Energy Project</div>
             </div>
-            <div class="gallery-box">
+            <div class="gallery-item" onclick="openLightbox('gallery/comm-2.jpg')">
                 <img src="gallery/comm-2.jpg">
-                <div class="gallery-overlay">Infrastructure Development</div>
+                <div class="gallery-info">System Maintenance & Support</div>
+            </div>
+            <!-- Row 3 (New) -->
+            <div class="gallery-item" onclick="openLightbox('gallery/ev-3.jpg')">
+                <img src="gallery/ev-3.jpg">
+                <div class="gallery-info">Charging Network Deployment</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('gallery/solar-3.jpg')">
+                <img src="gallery/solar-3.jpg">
+                <div class="gallery-info">High-Efficiency PV Systems</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('gallery/comm-3.jpg')">
+                <img src="gallery/comm-3.jpg">
+                <div class="gallery-info">Utility Line Standards</div>
             </div>
         </div>
     </div>
 
     <div class="container" id="docs">
-        <div class="section-header">
+        <div class="section-header section-title">
             <h2>Technical Resources</h2>
             <div class="line"></div>
         </div>
-
         <div class="doc-list">
-            <a href="documents/AI_Agents.pdf" target="_blank" class="doc-card">
-                <div class="doc-info">
-                    <div class="doc-icon">PDF</div>
-                    <div>
-                        <strong>AI for Engineering Productivity</strong>
-                        <p style="font-size: 0.8rem; color: var(--slate);">Presentation for Professional Seminar</p>
-                    </div>
+            <a href="documents/AI_Agents.pdf" target="_blank" class="doc-link">
+                <div>
+                    <strong>AI Agents for Engineering</strong>
+                    <p style="font-size: 0.8rem; color: var(--slate);">Digital Productivity Presentation</p>
                 </div>
-                <span>→</span>
+                <span>DOWNLOAD PDF</span>
             </a>
-            <a href="documents/EV_Business_Strategy.pdf" target="_blank" class="doc-card">
-                <div class="doc-info">
-                    <div class="doc-icon">PDF</div>
-                    <div>
-                        <strong>EV Infrastructure Strategy</strong>
-                        <p style="font-size: 0.8rem; color: var(--slate);">PEA Standard Implementation Guide</p>
-                    </div>
+            <a href="documents/EV_Business_Strategy.pdf" target="_blank" class="doc-link">
+                <div>
+                    <strong>EV Infrastructure Strategy</strong>
+                    <p style="font-size: 0.8rem; color: var(--slate);">PEA Standard Implementation Guide</p>
                 </div>
-                <span>→</span>
+                <span>DOWNLOAD PDF</span>
             </a>
-            <a href="documents/Communication_Guide.pdf" target="_blank" class="doc-card">
-                <div class="doc-info">
-                    <div class="doc-icon">PDF</div>
-                    <div>
-                        <strong>Communication Pole Standards</strong>
-                        <p style="font-size: 0.8rem; color: var(--slate);">Joint-Use Infrastructure Guidelines</p>
-                    </div>
+            <a href="documents/Communication_Guide.pdf" target="_blank" class="doc-link">
+                <div>
+                    <strong>Communication Pole Standards</strong>
+                    <p style="font-size: 0.8rem; color: var(--slate);">Utility Infrastructure Guidelines</p>
                 </div>
-                <span>→</span>
+                <span>DOWNLOAD PDF</span>
             </a>
         </div>
     </div>
 
     <div class="container" id="contact">
-        <div class="contact-section">
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Get in Touch</h2>
-                <p style="color: #94a3b8;">Available for academic guest speaking, technical consulting, and professional training.</p>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 10px;">Email Address</p>
-                    <a href="mailto:Jaturong.cho@gmail.com">Jaturong.cho@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 10px;">Phone Number</p>
-                    <a href="tel:0983905858">098-390-5858</a>
-                </div>
-                <div class="contact-item">
-                    <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 10px;">LINE Contact</p>
-                    <a href="https://line.me/ti/p/~Snack1711">Snack1711</a>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="mailto:Jaturong.cho@gmail.com" class="btn-primary">Connect via Email</a>
+        <div class="contact-box">
+            <h2>Ready to Collaborate?</h2>
+            <p style="color: var(--slate); margin-top: 10px;">ติดต่อสอบถามเกี่ยวกับการบรรยาย งานปรึกษา หรือการฝึกอบรม</p>
+            <div class="contact-links">
+                <a href="tel:0983905858" class="contact-btn">📞 098-390-5858</a>
+                <a href="https://line.me/ti/p/~Snack1711" class="contact-btn">💬 LINE: Snack1711</a>
+                <a href="mailto:Jaturong.cho@gmail.com" class="contact-btn">✉️ Jaturong.cho@gmail.com</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Jaturong Songpakde. Designed for Professional Excellence.</p>
+        <p style="padding-bottom: 40px; color: var(--slate); font-size: 0.8rem;">
+            &copy; 2026 Jaturong Songpakde. Powering the Future with Intelligence.
+        </p>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-lb">&times;</span>
+        <img id="lightbox-img">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
