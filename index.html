@@ -77,13 +77,14 @@
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             border: 5px solid rgba(255,255,255,0.2);
             margin-bottom: 2rem;
             object-fit: cover;
             background: #eee;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
         }
 
         h1 {
@@ -134,105 +135,85 @@
             margin: 0 auto;
         }
 
-        /* Grid Layout */
+        /* Expertise Grid */
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
         }
 
-        /* Infographic Cards */
         .card {
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 35px;
             transition: all 0.3s ease;
             box-shadow: var(--card-shadow);
             border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
 
-        .icon-box {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light);
-            border-radius: 18px;
-            color: var(--primary);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-size: 1.4rem;
-        }
-
-        .card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .tag {
-            background: #f1f5f9;
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Education & Experience */
-        .dual-column {
+        /* Gallery Section */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
 
-        .info-block {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
             box-shadow: var(--card-shadow);
         }
 
-        .info-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 3px solid var(--accent);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
         }
 
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
         }
 
-        .info-item span {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin-bottom: 8px;
-            font-weight: 600;
+        /* PDF List */
+        .doc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
+
+        .doc-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-left: 4px solid var(--primary);
+        }
+
+        .doc-item:hover { transform: translateX(5px); background: #fdfdfd; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+
+        .doc-icon { font-size: 1.5rem; color: #ef4444; }
 
         /* Footer */
         footer {
@@ -240,10 +221,6 @@
             color: white;
             padding: 60px 5% 30px;
             text-align: center;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
         }
 
         .btn {
@@ -257,28 +234,11 @@
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #00acc1;
-            transform: scale(1.05);
-        }
+        .btn:hover { background: #00acc1; transform: scale(1.05); }
 
-        /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
-            .dual-column { grid-template-columns: 1fr; }
-            .expertise-grid { grid-template-columns: 1fr; }
             header { padding-top: 120px; }
-        }
-
-        /* SVG Icons Styling */
-        .icon-svg {
-            width: 50px;
-            height: 50px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
         }
     </style>
 </head>
@@ -291,12 +251,7 @@
 
     <header>
         <div class="hero-content">
-            <!-- Placeholder for Profile Image -->
-            <svg class="profile-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="#ddd" />
-                <path d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C65 80 75 65 75 50 C75 35 65 20 50 20 Z" fill="#bbb" />
-                <circle cx="50" cy="40" r="12" fill="#999" />
-            </svg>
+            <img src="cover.jpg" class="profile-img" alt="นายจาตุรงค์ ทรงภักดี">
             <h1>นายจาตุรงค์ ทรงภักดี</h1>
             <div class="title-sub">Lecturer & Expert Guest Speaker</div>
             <div class="current-role">
@@ -306,123 +261,107 @@
     </header>
 
     <div class="container">
+        <!-- Expertise Section -->
         <div class="section-title">
             <h2>Expertise & Specializations</h2>
             <div class="underline"></div>
-            <p style="margin-top: 15px; color: var(--gray);">Technical proficiency in modern electrical infrastructure and intelligence systems.</p>
         </div>
 
         <div class="expertise-grid">
-            <!-- 1. EV Station -->
             <div class="card">
-                <div class="icon-box">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.19 15.83a4.13 4.13 0 0 0-.74-4.83l-3.32-3.32V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3.17l.59-.59a2 2 0 1 1 2.82 2.82l-.58.59V22h4v-3.17l1.36-1.36a1 1 0 0 0 0-1.64zM10 18H6v-2h4v2zm0-4H6v-2h4v2zm0-4H6V8h4v2z"/></svg>
-                </div>
-                <h3>EV Station Infrastructure</h3>
-                <p>Comprehensive knowledge of charging standards, electrical load design, and implementation for EV ecosystems.</p>
-                <div class="tag-container">
-                    <span class="tag">Charging Standards</span>
-                    <span class="tag">Load Balancing</span>
-                    <span class="tag">Installation</span>
-                </div>
+                <h3>EV Infrastructure</h3>
+                <p>Charging standards and implementation for EV ecosystems.</p>
             </div>
-
-            <!-- 2. AI -->
             <div class="card">
-                <div class="icon-box" style="color: var(--accent);">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-7h2a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm10 0h-2a1 1 0 0 1 0 2h2a1 1 0 0 1 0-2zm-5-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"/></svg>
-                </div>
                 <h3>Artificial Intelligence</h3>
-                <p>Specializing in Machine Learning applications for engineering data analysis and predictive maintenance.</p>
-                <div class="tag-container">
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Data Analytics</span>
-                    <span class="tag">Python</span>
-                </div>
+                <p>Machine Learning applications in engineering.</p>
             </div>
-
-            <!-- 3. PEA Distribution -->
-            <div class="card">
-                <div class="icon-box">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3>Electrical Distribution</h3>
-                <p>Expertise in PEA smart grid standards, network reliability, and substation operation management.</p>
-                <div class="tag-container">
-                    <span class="tag">Smart Grid</span>
-                    <span class="tag">Reliability</span>
-                    <span class="tag">Substation</span>
-                </div>
-            </div>
-
-            <!-- 4. Communication Cables -->
-            <div class="card">
-                <div class="icon-box">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M2 20h20M4 20V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M8 6h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2"/></svg>
-                </div>
-                <h3>Communication Design</h3>
-                <p>Technical design and installation standards for communication lines on utility poles and infrastructure.</p>
-                <div class="tag-container">
-                    <span class="tag">Fiber Optics</span>
-                    <span class="tag">Utility Design</span>
-                    <span class="tag">Standards</span>
-                </div>
-            </div>
-
-            <!-- 5. Solar Cell -->
-            <div class="card">
-                <div class="icon-box" style="color: var(--success);">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7v10M7 12h10M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
-                </div>
-                <h3>Solar & Maintenance</h3>
-                <p>Optimization of PV systems, efficiency monitoring, and advanced maintenance protocols for sustainability.</p>
-                <div class="tag-container">
-                    <span class="tag">PV Systems</span>
-                    <span class="tag">Optimization</span>
-                    <span class="tag">Eco-Energy</span>
-                </div>
+            <div class="card" style="border-left: 4px solid var(--primary);">
+                <h3>PEA Smart Grid</h3>
+                <p>Distribution reliability and network standards.</p>
             </div>
         </div>
 
-        <div class="dual-column">
-            <!-- Education -->
-            <div class="info-block">
-                <h3 style="margin-bottom: 25px; color: var(--dark);">Education Background</h3>
-                <div class="info-item">
-                    <span>Currently Enrolled</span>
-                    <h4>Master of Engineering</h4>
-                    <p>Computer Engineering and Artificial Intelligence<br>Uttaradit Rajabhat University</p>
-                </div>
-                <div class="info-item">
-                    <span>Graduated</span>
-                    <h4>Bachelor of Technology (Electrical)</h4>
-                    <p>Faculty of Engineering<br>Rajamangala University of Technology Lanna, Lampang</p>
-                </div>
-            </div>
+        <!-- Gallery Section -->
+        <div class="section-title" id="gallery">
+            <h2>Project Highlights</h2>
+            <div class="underline"></div>
+            <p style="margin-top: 15px; color: var(--gray);">Visual documentation of technical projects and field operations.</p>
+        </div>
 
-            <!-- Current Professional Role -->
-            <div class="info-block">
-                <h3 style="margin-bottom: 25px; color: var(--dark);">Professional Summary</h3>
-                <p style="color: var(--gray); margin-bottom: 20px;">
-                    Experienced engineer at the **Provincial Electricity Authority (PEA)** with a focused specialization in high-voltage systems and digital transformation. 
-                </p>
-                <ul style="list-style: none; color: var(--gray);">
-                    <li style="margin-bottom: 10px;">✓ Specialist in Power Generation Systems</li>
-                    <li style="margin-bottom: 10px;">✓ Advanced Substation Operation & Maintenance</li>
-                    <li style="margin-bottom: 10px;">✓ Regional Technical Consultant for PEA Region 2 North</li>
-                    <li style="margin-bottom: 10px;">✓ Academic Contributor & Guest Speaker</li>
-                </ul>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="gallery/EV_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_1.jpg" alt="EV Station Work">
+                <div class="gallery-caption">EV Charging Station Installation</div>
             </div>
+            <div class="gallery-item">
+                <img src="gallery/Solar_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_1.jpg" alt="Solar Work">
+                <div class="gallery-caption">Solar PV System Maintenance</div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/Comm_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_1.jpg" alt="Communication Work">
+                <div class="gallery-caption">Communication Line Design</div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/EV_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_2.jpg" alt="Field Work">
+                <div class="gallery-caption">On-site Technical Inspection</div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/Solar_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_2.jpg" alt="Solar Project">
+                <div class="gallery-caption">Sustainable Energy Solutions</div>
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/Comm_Project_LINE_ALBUM_เธเธฅเธเธฒเธ_260317_2.jpg" alt="Comm Project">
+                <div class="gallery-caption">Utility Infrastructure Design</div>
+            </div>
+        </div>
+
+        <!-- PDF Documents Section -->
+        <div class="section-title" style="margin-top: 100px;">
+            <h2>Technical Documents & Resources</h2>
+            <div class="underline"></div>
+            <p style="margin-top: 15px; color: var(--gray);">Downloadable presentations and technical guides.</p>
+        </div>
+
+        <div class="doc-list">
+            <a href="documents/AI_Agents.pdf" target="_blank" class="doc-item">
+                <span class="doc-icon">PDF</span>
+                <div>
+                    <strong>AI Agents for Productivity</strong>
+                    <p style="font-size: 0.8rem; color: var(--gray);">Technical Presentation on AI</p>
+                </div>
+            </a>
+            <a href="documents/NotebookLM.pdf" target="_blank" class="doc-item">
+                <span class="doc-icon">PDF</span>
+                <div>
+                    <strong>Modern Knowledge Management</strong>
+                    <p style="font-size: 0.8rem; color: var(--gray);">NotebookLM & AI Tools</p>
+                </div>
+            </a>
+            <a href="documents/EV_Business_Strategy.pdf" target="_blank" class="doc-item">
+                <span class="doc-icon">PDF</span>
+                <div>
+                    <strong>EV Business & Infrastructure</strong>
+                    <p style="font-size: 0.8rem; color: var(--gray);">PEA EV Station Standards</p>
+                </div>
+            </a>
+            <a href="documents/Communication_Guide.pdf" target="_blank" class="doc-item">
+                <span class="doc-icon">PDF</span>
+                <div>
+                    <strong>Communication Line Installation</strong>
+                    <p style="font-size: 0.8rem; color: var(--gray);">Technical Standard for PEA Poles</p>
+                </div>
+            </a>
         </div>
     </div>
 
     <footer>
         <div class="contact-info">
-            <h2 style="margin-bottom: 10px;">Interested in Collaboration?</h2>
-            <p style="color: #94a3b8; margin-bottom: 30px;">Available for part-time lecturing, guest speaking, and technical consulting.</p>
+            <h2>Interested in Collaboration?</h2>
+            <p style="color: #94a3b8; margin-bottom: 30px;">Available for lecturing, guest speaking, and technical consulting.</p>
             <a href="mailto:jaturong.s@pea.co.th" class="btn">Get In Touch</a>
         </div>
-        <p style="font-size: 0.8rem; color: #64748b;">&copy; 2026 Jaturong Songpakde. All rights reserved.</p>
+        <p style="font-size: 0.8rem; color: #64748b; margin-top: 40px;">&copy; 2026 Jaturong Songpakde. All rights reserved.</p>
     </footer>
 
 </body>
