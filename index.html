@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaturong Songpakde | Lecturer & Expert Guest Speaker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e35b1; /* PEA Inspired Purple */
+            --primary-dark: #4527a0;
+            --accent: #00acc1; /* Tech Cyan */
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #64748b;
+            --success: #10b981;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 160px 5% 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #311b92 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.2);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .title-sub {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .current-role {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title .underline {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* Grid Layout */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Infographic Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            border-radius: 18px;
+            color: var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Education & Experience */
+        .dual-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .info-block {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .info-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 5% 30px;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00acc1;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .dual-column { grid-template-columns: 1fr; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            header { padding-top: 120px; }
+        }
+
+        /* SVG Icons Styling */
+        .icon-svg {
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PORTFOLIO.JATURONG</div>
+        <a href="mailto:jaturong.s@pea.co.th" class="btn" style="padding: 8px 20px; font-size: 0.8rem;">Contact Me</a>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <!-- Placeholder for Profile Image -->
+            <svg class="profile-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#ddd" />
+                <path d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C65 80 75 65 75 50 C75 35 65 20 50 20 Z" fill="#bbb" />
+                <circle cx="50" cy="40" r="12" fill="#999" />
+            </svg>
+            <h1>นายจาตุรงค์ ทรงภักดี</h1>
+            <div class="title-sub">Lecturer & Expert Guest Speaker</div>
+            <div class="current-role">
+                พชง.6 แผนกระบบผลิตไฟฟ้า กองสถานีไฟฟ้า ฝ่ายปฏิบัติการและบำรุงรักษา กฟภ. เขต 2 (ภาคเหนือ)
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">
+            <h2>Expertise & Specializations</h2>
+            <div class="underline"></div>
+            <p style="margin-top: 15px; color: var(--gray);">Technical proficiency in modern electrical infrastructure and intelligence systems.</p>
+        </div>
+
+        <div class="expertise-grid">
+            <!-- 1. EV Station -->
+            <div class="card">
+                <div class="icon-box">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.19 15.83a4.13 4.13 0 0 0-.74-4.83l-3.32-3.32V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3.17l.59-.59a2 2 0 1 1 2.82 2.82l-.58.59V22h4v-3.17l1.36-1.36a1 1 0 0 0 0-1.64zM10 18H6v-2h4v2zm0-4H6v-2h4v2zm0-4H6V8h4v2z"/></svg>
+                </div>
+                <h3>EV Station Infrastructure</h3>
+                <p>Comprehensive knowledge of charging standards, electrical load design, and implementation for EV ecosystems.</p>
+                <div class="tag-container">
+                    <span class="tag">Charging Standards</span>
+                    <span class="tag">Load Balancing</span>
+                    <span class="tag">Installation</span>
+                </div>
+            </div>
+
+            <!-- 2. AI -->
+            <div class="card">
+                <div class="icon-box" style="color: var(--accent);">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-7h2a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm10 0h-2a1 1 0 0 1 0 2h2a1 1 0 0 1 0-2zm-5-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V9a1 1 0 0 1 1-1z"/></svg>
+                </div>
+                <h3>Artificial Intelligence</h3>
+                <p>Specializing in Machine Learning applications for engineering data analysis and predictive maintenance.</p>
+                <div class="tag-container">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Data Analytics</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+
+            <!-- 3. PEA Distribution -->
+            <div class="card">
+                <div class="icon-box">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>Electrical Distribution</h3>
+                <p>Expertise in PEA smart grid standards, network reliability, and substation operation management.</p>
+                <div class="tag-container">
+                    <span class="tag">Smart Grid</span>
+                    <span class="tag">Reliability</span>
+                    <span class="tag">Substation</span>
+                </div>
+            </div>
+
+            <!-- 4. Communication Cables -->
+            <div class="card">
+                <div class="icon-box">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M2 20h20M4 20V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M8 6h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2"/></svg>
+                </div>
+                <h3>Communication Design</h3>
+                <p>Technical design and installation standards for communication lines on utility poles and infrastructure.</p>
+                <div class="tag-container">
+                    <span class="tag">Fiber Optics</span>
+                    <span class="tag">Utility Design</span>
+                    <span class="tag">Standards</span>
+                </div>
+            </div>
+
+            <!-- 5. Solar Cell -->
+            <div class="card">
+                <div class="icon-box" style="color: var(--success);">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7v10M7 12h10M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
+                </div>
+                <h3>Solar & Maintenance</h3>
+                <p>Optimization of PV systems, efficiency monitoring, and advanced maintenance protocols for sustainability.</p>
+                <div class="tag-container">
+                    <span class="tag">PV Systems</span>
+                    <span class="tag">Optimization</span>
+                    <span class="tag">Eco-Energy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dual-column">
+            <!-- Education -->
+            <div class="info-block">
+                <h3 style="margin-bottom: 25px; color: var(--dark);">Education Background</h3>
+                <div class="info-item">
+                    <span>Currently Enrolled</span>
+                    <h4>Master of Engineering</h4>
+                    <p>Computer Engineering and Artificial Intelligence<br>Uttaradit Rajabhat University</p>
+                </div>
+                <div class="info-item">
+                    <span>Graduated</span>
+                    <h4>Bachelor of Technology (Electrical)</h4>
+                    <p>Faculty of Engineering<br>Rajamangala University of Technology Lanna, Lampang</p>
+                </div>
+            </div>
+
+            <!-- Current Professional Role -->
+            <div class="info-block">
+                <h3 style="margin-bottom: 25px; color: var(--dark);">Professional Summary</h3>
+                <p style="color: var(--gray); margin-bottom: 20px;">
+                    Experienced engineer at the **Provincial Electricity Authority (PEA)** with a focused specialization in high-voltage systems and digital transformation. 
+                </p>
+                <ul style="list-style: none; color: var(--gray);">
+                    <li style="margin-bottom: 10px;">✓ Specialist in Power Generation Systems</li>
+                    <li style="margin-bottom: 10px;">✓ Advanced Substation Operation & Maintenance</li>
+                    <li style="margin-bottom: 10px;">✓ Regional Technical Consultant for PEA Region 2 North</li>
+                    <li style="margin-bottom: 10px;">✓ Academic Contributor & Guest Speaker</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <h2 style="margin-bottom: 10px;">Interested in Collaboration?</h2>
+            <p style="color: #94a3b8; margin-bottom: 30px;">Available for part-time lecturing, guest speaking, and technical consulting.</p>
+            <a href="mailto:jaturong.s@pea.co.th" class="btn">Get In Touch</a>
+        </div>
+        <p style="font-size: 0.8rem; color: #64748b;">&copy; 2026 Jaturong Songpakde. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
